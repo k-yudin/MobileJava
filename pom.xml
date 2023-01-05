@@ -3,11 +3,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.example</groupId>
     <artifactId>MobileJava</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <build>
         <plugins>
             <plugin>
@@ -20,7 +18,6 @@
             </plugin>
         </plugins>
     </build>
-
     <dependencies>
         <dependency>
             <groupId>io.appium</groupId>
@@ -39,7 +36,6 @@
             <version>1.1.1</version>
         </dependency>
     </dependencies>
-
     <profiles>
         <profile>
             <id>ios</id>
@@ -50,6 +46,8 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <version>2.21.0</version>
                         <configuration>
+                            <parallel>methods</parallel>
+                            <threadCount>4</threadCount>
                             <suiteXmlFiles>
                                 <suiteXmlFile>ios_testng.xml</suiteXmlFile>
                             </suiteXmlFiles>

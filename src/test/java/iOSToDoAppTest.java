@@ -22,7 +22,7 @@ public class iOSToDoAppTest extends TestBase{
 
     @Test(dataProvider = "task data")
     public void testAddTask(String taskName, String taskDescription) throws MalformedURLException {
-        iOSSetUp();
+        iOSSetUp("10000", "iPhone 14 Pro", "603BDE57-20A3-41C9-889B-C1B8A0BE8195", "8200");
         tasksListPage = new TasksListPage(driver);
         createTaskPage = new CreateTaskPage(driver);
         tasksListPage.clickAddTaskButton();
@@ -32,4 +32,15 @@ public class iOSToDoAppTest extends TestBase{
         tearDown();
     }
 
+    @Test(dataProvider = "task data")
+    public void testAddTask2(String taskName, String taskDescription) throws MalformedURLException {
+        iOSSetUp("10001", "iPhone 14 Plus)", "04104EA8-3CE5-4525-8101-E5E39CAC26C6", "8100");
+        tasksListPage = new TasksListPage(driver);
+        createTaskPage = new CreateTaskPage(driver);
+        tasksListPage.clickAddTaskButton();
+        createTaskPage.enterTaskName(taskName);
+        createTaskPage.enterTaskDesc(taskDescription);
+        createTaskPage.clickSaveButton();
+        tearDown();
+    }
 }

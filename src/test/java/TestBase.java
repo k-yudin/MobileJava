@@ -19,14 +19,16 @@ public class TestBase {
         driver = new AndroidDriver(new URL("http://localhost:4723"), caps);
     }
 
-    public static void iOSSetUp() throws MalformedURLException {
+    public static void iOSSetUp(String port, String deviceName, String udid, String wdaLocalPort) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("platformName", "iOS");
         caps.setCapability("automationName", "XCUITest");
         caps.setCapability("platformVersion", "16.2");
-        caps.setCapability("deviceName", "iPhone 14 Pro");
+        caps.setCapability("deviceName", deviceName);
+        caps.setCapability("udid", udid);
+        caps.setCapability("wdaLocalPort", wdaLocalPort);
         caps.setCapability("app", "/Users/kyudin/Downloads/DailyCheck.app");
-        driver = new IOSDriver(new URL("http://localhost:4723"), caps);
+        driver = new IOSDriver(new URL("http://localhost:"+port), caps);
     }
 
     public static void tearDown() {
