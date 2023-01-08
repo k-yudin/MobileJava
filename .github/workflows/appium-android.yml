@@ -9,6 +9,8 @@
 name: Appium Android
 
 on:
+  push:
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
