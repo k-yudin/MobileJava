@@ -19,7 +19,7 @@ public class TestBase {
         driver = new AndroidDriver(new URL("http://localhost:4723"), caps);
     }
 
-    public static void iOSSetUp(String port, String deviceName, String udid, String wdaLocalPort) throws MalformedURLException {
+    public static void iOSSetUpParallel(String port, String deviceName, String udid, String wdaLocalPort) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("platformName", "iOS");
         caps.setCapability("automationName", "XCUITest");
@@ -29,6 +29,17 @@ public class TestBase {
         caps.setCapability("wdaLocalPort", wdaLocalPort);
         caps.setCapability("app", "/Users/kyudin/Downloads/DailyCheck.app");
         driver = new IOSDriver(new URL("http://localhost:"+port), caps);
+    }
+
+    public static void iOSSetUp() throws MalformedURLException {
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("platformName", "iOS");
+        caps.setCapability("automationName", "XCUITest");
+        caps.setCapability("deviceName", "iPhone X");
+        caps.setCapability("isHeadless", true);
+        caps.setCapability("showXcodeLog", true);
+        caps.setCapability("app", System.getProperty("user.dir") + "/apps/DailyCheck.zip");
+        driver = new IOSDriver(new URL("http://localhost:4723"), caps);
     }
 
     public static void tearDown() {
