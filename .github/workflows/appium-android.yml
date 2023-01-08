@@ -32,6 +32,7 @@ jobs:
        node-version: '18'
     - run: |
             npm install -g appium@next
+            appium driver install uiautomator2
             appium -v
             appium &>/dev/null &
     - name: Run Appium Tests
