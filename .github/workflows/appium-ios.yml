@@ -27,4 +27,4 @@ jobs:
           appium driver install xcuitest
           appium -v
           appium &>/dev/null &
-          mvn clean test -PiOS
+          mvn clean test -Pios
