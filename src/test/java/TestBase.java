@@ -14,8 +14,8 @@ public class TestBase {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("platformName", "Android");
         caps.setCapability("automationName", "UIAutomator2");
-        caps.setCapability("platformVersion", "7.1.1");
-        caps.setCapability("app", "/apps/ToDo.apk");
+        caps.setCapability("platformVersion", "7.1");
+        caps.setCapability("app", System.getProperty("user.dir") + "/apps/ToDo.apk");
         driver = new AndroidDriver(new URL("http://localhost:4723"), caps);
     }
 
